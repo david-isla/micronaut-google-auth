@@ -8,7 +8,21 @@
 
   <h1>Micronaut - Auth validator example</h1>
 
+  <h3><span th:text="'Num Cookies: ' + ${numCookies}"></span></h3>
 
+  <h3 th:unless="${isJWTPresent}"><span>Debes incluir una cookie con el token JWT</span></h3>
+
+  <div th:if="${isJWTPresent}">
+      <h3></h3><span>Token presente</span></h3>
+
+      <h4><span th:unless="${JWTValid}">Token invalido</span></h4>
+      <div th:if="${JWTValid}">
+          <h4><span>Token valido</span></h4>
+          <h4><span th:text="'JWTUser: ' +${JWTUser}"></span></h4>
+          <h4><span th:text="'JWTEmail: ' +${JWTEmail}"></span></h4>
+      </div>
+
+  </div>
 
 </body>
 </html>
